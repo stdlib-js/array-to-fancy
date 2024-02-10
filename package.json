@@ -67,7 +67,7 @@
     "@stdlib/string-base-replace": "^0.1.1",
     "@stdlib/string-base-starts-with": "^0.1.1",
     "@stdlib/string-base-trim": "^0.1.1",
-    "@stdlib/string-format": "^0.1.1",
+    "@stdlib/error-tools-fmtprodmsg": "^0.1.1",
     "@stdlib/types": "^0.3.1"
   },
   "devDependencies": {
