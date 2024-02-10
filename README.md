@@ -1,0 +1,493 @@
+<!--
+
+@license Apache-2.0
+
+Copyright (c) 2024 The Stdlib Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+
+
+<details>
+  <summary>
+    About stdlib...
+  </summary>
+  <p>We believe in a future in which the web is a preferred environment for numerical computation. To help realize this future, we've built stdlib. stdlib is a standard library, with an emphasis on numerical and scientific computation, written in JavaScript (and C) for execution in browsers and in Node.js.</p>
+  <p>The library is fully decomposable, being architected in such a way that you can swap out and mix and match APIs and functionality to cater to your exact preferences and use cases.</p>
+  <p>When you use stdlib, you can be absolutely certain that you are using the most thorough, rigorous, well-written, studied, documented, tested, measured, and high-quality code out there.</p>
+  <p>To join us in bringing numerical computing to the web, get started by checking us out on <a href="https://github.com/stdlib-js/stdlib">GitHub</a>, and please consider <a href="https://opencollective.com/stdlib">financially supporting stdlib</a>. We greatly appreciate your continued support!</p>
+</details>
+
+# array2fancy
+
+[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
+
+> Convert an array to an object supporting fancy indexing.
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+An array supporting **fancy indexing** is an array which supports slicing via indexing expressions for both retrieval and assignment.
+
+```javascript
+var array2fancy = require( '@stdlib/array-to-fancy' );
+
+// Create a plain array:
+var x = [ 1, 2, 3, 4, 5, 6, 7, 8 ];
+
+// Turn the plain array into a "fancy" array:
+var y = array2fancy( x );
+
+// Select the first 3 elements:
+var v = y[ ':3' ];
+// returns [ 1, 2, 3 ]
+
+// Select every other element, starting from the second element:
+v = y[ '1::2' ];
+// returns [ 2, 4, 6, 8 ]
+
+// Select every other element, in reverse order, starting with the least element:
+v = y[ '::-2' ];
+// returns [ 8, 6, 4, 2 ]
+
+// Set all elements to the same value:
+y[ ':' ] = 9;
+
+// Create a shallow copy by selecting all elements:
+v = y[ ':' ];
+// returns [ 9, 9, 9, 9, 9, 9, 9, 9 ]
+```
+
+</section>
+
+<!-- /.intro -->
+
+<!-- Package usage documentation. -->
+
+<section class="installation">
+
+## Installation
+
+```bash
+npm install @stdlib/array-to-fancy
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
+
+<section class="usage">
+
+## Usage
+
+```javascript
+var array2fancy = require( '@stdlib/array-to-fancy' );
+```
+
+#### array2fancy( x\[, options] )
+
+Converts an array to an object supporting fancy indexing.
+
+```javascript
+var Slice = require( '@stdlib/slice-ctor' );
+
+var x = [ 1, 2, 3, 4 ];
+
+var y = array2fancy( x );
+// returns <Array>
+
+// Normal element access:
+var v = y[ 0 ];
+// returns 1
+
+v = y[ 1 ];
+// returns 2
+
+// Using negative integers:
+v = y[ -1 ];
+// returns 4
+
+v = y[ -2 ];
+// returns 3
+
+// Using subsequence expressions:
+v = y[ '1::2' ];
+// returns [ 2, 4 ]
+
+// Using Slice objects:
+v = y[ new Slice( 1, null, 2 ) ];
+// returns [ 2, 4 ]
+
+// Assignment:
+y[ '1:3' ] = 5;
+v = y[ ':' ];
+// returns [ 1, 5, 5, 4 ]
+```
+
+The function supports the following options:
+
+-   **strict**: boolean indicating whether to enforce strict bounds checking. Default: `false`.
+
+By default, the function returns a fancy array which does **not** enforce strict bounds checking. For example,
+
+```javascript
+var y = array2fancy( [ 1, 2, 3, 4 ] );
+
+var v = y[ 10 ];
+// returns undefined
+```
+
+To enforce strict bounds checking, set the `strict` option to `true`.
+
+<!-- run throws: true -->
+
+```javascript
+var y = array2fancy( [ 1, 2, 3, 4 ], {
+    'strict': true
+});
+
+var v = y[ 10 ];
+// throws <RangeError>
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- Package usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+* * *
+
+## Notes
+
+-   A fancy array shares the **same** data as the provided input array. Hence, any mutations to the returned array will affect the underlying input array.
+-   A fancy array supports indexing using positive and negative integers (both numeric literals and strings), [`Slice`][@stdlib/slice/ctor] instances, and [subsequence expressions][@stdlib/slice/seq2slice].
+-   A fancy array supports all properties and methods of the input array, and, thus, a fancy array can be consumed by any API which supports array-like objects.
+-   Indexing expressions provide a convenient and powerful means for creating and operating on array views; however, their use does entail a performance cost. Indexing expressions are best suited for interactive use (e.g., in the [REPL][@stdlib/repl]) and scripting. For performance critical applications, prefer equivalent functional APIs supporting array-like objects.
+-   In older JavaScript environments which do **not** support [`Proxy`][@stdlib/proxy/ctor] objects, the use of indexing expressions is **not** supported.
+
+### Broadcasting
+
+Fancy arrays support **broadcasting** in which assigned scalars and single-element arrays are repeated (without additional memory allocation) to match the length of a target array instance.
+
+```javascript
+var y = array2fancy( [ 1, 2, 3, 4 ] );
+
+// Broadcast a scalar:
+y[ ':' ] = 5;
+var v = y[ ':' ];
+// returns [ 5, 5, 5, 5 ]
+
+// Broadcast a single-element array:
+y[ ':' ] = [ 6 ];
+v = y[ ':' ];
+// returns [ 6, 6, 6, 6 ]
+```
+
+Fancy array broadcasting follows the [same rules][@stdlib/ndarray/base/broadcast-shapes] as for [ndarrays][@stdlib/ndarray/ctor]. Consequently, when assigning arrays to slices, the array on the right-hand-side must be broadcast-compatible with number of elements in the slice. For example,
+
+```javascript
+var y = array2fancy( [ 1, 2, 3, 4 ] );
+
+y[ ':' ] = [ 5, 6, 7, 8 ];
+var v = y[ ':' ];
+// returns [ 5, 6, 7, 8 ]
+
+y[ '1::2' ] = [ 9, 10 ];
+v = y[ ':' ];
+// returns [ 5, 9, 7, 10 ]
+
+y[ '1::2' ] = [ 11 ];
+v = y[ ':' ];
+// returns [ 5, 11, 7, 11 ]
+
+y[ '1::2' ] = 12;
+v = y[ ':' ];
+// returns [ 5, 12, 7, 12 ]
+
+// Out-of-bounds slices (i.e., slices with zero elements):
+y[ '10:20' ] = [ 13 ];
+v = y[ ':' ];
+// returns [ 5, 12, 7, 12 ]
+
+y[ '10:20' ] = 13;
+v = y[ ':' ];
+// returns [ 5, 12, 7, 12 ]
+
+y[ '10:20' ] = [];
+v = y[ ':' ];
+// returns [ 5, 12, 7, 12 ]
+```
+
+are all valid. However,
+
+<!-- run throws: true -->
+
+```javascript
+var y = array2fancy( [ 1, 2, 3, 4 ] );
+
+y[ ':' ] = [ 5, 6 ];
+// throws <Error>
+
+// Out-of-bounds slice (i.e., a slice with zero elements):
+y[ '10:20' ] = [ 8, 9, 10, 11 ];
+// throws <Error>
+```
+
+### Casting
+
+Fancy arrays support [(mostly) safe casts][@stdlib/array/mostly-safe-casts] (i.e., any cast which can be performed without overflow or loss of precision, with the exception of floating-point arrays which are also allowed to downcast from higher precision to lower precision).
+
+```javascript
+var Uint8Array = require( '@stdlib/array-uint8' );
+var Int32Array = require( '@stdlib/array-int32' );
+
+var x = new Int32Array( [ 1, 2, 3, 4 ] );
+var y = array2fancy( x );
+
+// 8-bit unsigned integer values can be safely cast to 32-bit signed integer values:
+y[ ':' ] = new Uint8Array( [ 5, 6, 7, 8 ] );
+```
+
+When attempting to perform an unsafe cast, fancy arrays will raise an exception.
+
+<!-- run throws: true -->
+
+```javascript
+var Uint8Array = require( '@stdlib/array-uint8' );
+
+var x = new Uint8Array( [ 1, 2, 3, 4 ] );
+var y = array2fancy( x );
+
+// Attempt to assign a non-integer value:
+y[ ':' ] = 3.14;
+// throws <TypeError>
+
+// Attempt to assign a negative value:
+y[ ':' ] = -3;
+// throws <TypeError>
+```
+
+When assigning a real-valued scalar to a complex number array (e.g., [`Complex128Array`][@stdlib/array/complex128] or [`Complex64Array`][@stdlib/array/complex64]), a fancy array will cast the real-valued scalar to a complex number argument having an imaginary component equal to zero.
+
+```javascript
+var Complex128Array = require( '@stdlib/array-complex128' );
+var real = require( '@stdlib/complex-real' );
+var imag = require( '@stdlib/complex-imag' );
+
+var x = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ] );
+var y = array2fancy( x );
+
+// Retrieve the first element:
+var v = y[ 0 ];
+// returns <Complex128>
+
+var re = real( v );
+// returns 1.0
+
+var im = imag( v );
+// returns 2.0
+
+// Assign a real-valued scalar to the first element:
+y[ 0 ] = 9.0;
+
+v = y[ 0 ];
+// returns <Complex128>
+
+re = real( v );
+// returns 9.0
+
+im = imag( v );
+// returns 0.0
+```
+
+Note, however, that attempting to assign a real-valued array to a complex number array slice is **not** supported due to the ambiguity of whether the real-valued array is a collection of real components (with implied imaginary components equal to zero) or an array of interleaved real and imaginary components.
+
+<!-- run throws: true -->
+
+```javascript
+var Float64Array = require( '@stdlib/array-float64' );
+var Complex128Array = require( '@stdlib/array-complex128' );
+
+var x = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0 ] );
+var y = array2fancy( x );
+
+// Attempt to assign a real-valued array:
+y[ ':' ] = new Float64Array( [ 5.0, 6.0 ] ); // is this a single complex number which should be broadcast or a list of real components with implied imaginary components?
+// throws <Error>
+``` 
+
+</section>
+
+<!-- /.notes -->
+
+<!-- Package usage examples. -->
+
+<section class="examples">
+
+* * *
+
+## Examples
+
+<!-- eslint no-undef: "error" -->
+
+```javascript
+var array2fancy = require( '@stdlib/array-to-fancy' );
+
+var x = [ 1, 2, 3, 4, 5, 6 ];
+var y = array2fancy( x );
+// returns <Array>
+
+var z = y[ '1::2' ];
+// returns [ 2, 4, 6 ]
+
+z = y[ '-2::-2' ];
+// returns [ 5, 3, 1 ]
+
+z = y[ '1:4' ];
+// returns [ 2, 3, 4 ]
+
+y[ '4:1:-1' ] = 10;
+z = y[ ':' ];
+// returns [ 1, 2, 10, 10, 10, 6 ]
+
+y[ '2:5' ] = [ -10, -9, -8 ];
+z = y[ ':' ];
+// returns [ 1, 2, -10, -9, -8, 6 ]
+```
+
+</section>
+
+<!-- /.examples -->
+
+<!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="references">
+
+</section>
+
+<!-- /.references -->
+
+<!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
+
+<section class="related">
+
+</section>
+
+<!-- /.related -->
+
+<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+
+<section class="main-repo" >
+
+* * *
+
+## Notice
+
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+
+For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
+
+#### Community
+
+[![Chat][chat-image]][chat-url]
+
+---
+
+## License
+
+See [LICENSE][stdlib-license].
+
+
+## Copyright
+
+Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
+
+</section>
+
+<!-- /.stdlib -->
+
+<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="links">
+
+[npm-image]: http://img.shields.io/npm/v/@stdlib/array-to-fancy.svg
+[npm-url]: https://npmjs.org/package/@stdlib/array-to-fancy
+
+[test-image]: https://github.com/stdlib-js/array-to-fancy/actions/workflows/test.yml/badge.svg?branch=main
+[test-url]: https://github.com/stdlib-js/array-to-fancy/actions/workflows/test.yml?query=branch:main
+
+[coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/array-to-fancy/main.svg
+[coverage-url]: https://codecov.io/github/stdlib-js/array-to-fancy?branch=main
+
+<!--
+
+[dependencies-image]: https://img.shields.io/david/stdlib-js/array-to-fancy.svg
+[dependencies-url]: https://david-dm.org/stdlib-js/array-to-fancy/main
+
+-->
+
+[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
+[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
+
+[stdlib]: https://github.com/stdlib-js/stdlib
+
+[stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
+
+[umd]: https://github.com/umdjs/umd
+[es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+
+[deno-url]: https://github.com/stdlib-js/array-to-fancy/tree/deno
+[deno-readme]: https://github.com/stdlib-js/array-to-fancy/blob/deno/README.md
+[umd-url]: https://github.com/stdlib-js/array-to-fancy/tree/umd
+[umd-readme]: https://github.com/stdlib-js/array-to-fancy/blob/umd/README.md
+[esm-url]: https://github.com/stdlib-js/array-to-fancy/tree/esm
+[esm-readme]: https://github.com/stdlib-js/array-to-fancy/blob/esm/README.md
+[branches-url]: https://github.com/stdlib-js/array-to-fancy/blob/main/branches.md
+
+[stdlib-license]: https://raw.githubusercontent.com/stdlib-js/array-to-fancy/main/LICENSE
+
+[@stdlib/repl]: https://github.com/stdlib-js/repl
+
+[@stdlib/proxy/ctor]: https://github.com/stdlib-js/proxy-ctor
+
+[@stdlib/slice/ctor]: https://github.com/stdlib-js/slice-ctor
+
+[@stdlib/slice/seq2slice]: https://github.com/stdlib-js/slice-seq2slice
+
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
+
+[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes
+
+[@stdlib/array/mostly-safe-casts]: https://github.com/stdlib-js/array-mostly-safe-casts
+
+[@stdlib/array/complex128]: https://github.com/stdlib-js/array-complex128
+
+[@stdlib/array/complex64]: https://github.com/stdlib-js/array-complex64
+
+</section>
+
+<!-- /.links -->
