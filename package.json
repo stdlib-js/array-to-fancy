@@ -47,6 +47,7 @@
     "@stdlib/array-base-fancy-slice-assign": "^0.1.0",
     "@stdlib/array-base-min-signed-integer-dtype": "^0.1.0",
     "@stdlib/array-from-scalar": "^0.1.0",
+    "@stdlib/array-index": "github:stdlib-js/array-index#main",
     "@stdlib/array-min-dtype": "^0.1.0",
     "@stdlib/assert-has-own-property": "^0.1.1",
     "@stdlib/assert-has-property": "^0.1.1",
@@ -56,11 +57,13 @@
     "@stdlib/assert-is-complex-like": "^0.1.1",
     "@stdlib/assert-is-function": "^0.1.1",
     "@stdlib/assert-is-integer": "^0.1.0",
+    "@stdlib/assert-is-method-in": "^0.1.1",
     "@stdlib/assert-is-number": "^0.1.1",
     "@stdlib/assert-is-plain-object": "^0.1.1",
     "@stdlib/assert-is-string": "^0.1.1",
     "@stdlib/complex-dtype": "^0.1.1",
     "@stdlib/ndarray-base-normalize-index": "^0.1.0",
+    "@stdlib/object-assign": "^0.1.0",
     "@stdlib/proxy-ctor": "^0.1.1",
     "@stdlib/slice-base-seq2slice": "^0.1.0",
     "@stdlib/slice-base-str2slice": "^0.1.0",
@@ -68,7 +71,8 @@
     "@stdlib/string-base-starts-with": "^0.1.1",
     "@stdlib/string-base-trim": "^0.1.1",
     "@stdlib/string-format": "^0.1.1",
-    "@stdlib/types": "^0.3.1"
+    "@stdlib/types": "^0.3.1",
+    "@stdlib/utils-define-nonenumerable-read-only-property": "^0.1.1"
   },
   "devDependencies": {
     "@stdlib/array-base-to-accessor-array": "^0.1.0",
