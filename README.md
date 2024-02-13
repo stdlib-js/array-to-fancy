@@ -76,38 +76,32 @@ v = y[ ':' ];
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/array-to-fancy
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-array2fancy = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var array2fancy = require( 'path/to/vendor/umd/array-to-fancy/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.array2fancy;
-})();
-</script>
+var array2fancy = require( '@stdlib/array-to-fancy' );
 ```
 
 #### array2fancy( x\[, options] )
@@ -152,6 +146,18 @@ v = y[ ':' ];
 
 The function supports the following options:
 
+-   **cache**: cache for resolving array index objects. Must have a `get` method which accepts a single argument: a string identifier associated with an array index.
+
+    If an array index associated with a provided identifier exists, the `get` method should return an object having the following properties:
+
+    -   **data**: the underlying index array.
+    -   **type**: the index type. Must be either `'mask'`, `'bool'`, or `'int'`.
+    -   **dtype**: the [data type][@stdlib/array/dtypes] of the underlying array.
+
+    If an array index is not associated with a provided identifier, the `get` method should return `null`.
+
+    Default: [`ArrayIndex`][@stdlib/array/index].
+
 -   **strict**: boolean indicating whether to enforce strict bounds checking. Default: `false`.
 
 By default, the function returns a fancy array which does **not** enforce strict bounds checking. For example,
@@ -176,15 +182,74 @@ var v = y[ 10 ];
 // throws <RangeError>
 ```
 
+#### array2fancy.factory( \[options] )
+
+Returns a function for converting an array to an object supporting fancy indexing.
+
+```javascript
+var fcn = array2fancy.factory();
+
+var x = [ 1, 2, 3, 4 ];
+
+var y = fcn( x );
+// returns <Array>
+
+var v = y[ ':' ];
+// returns [ 1, 2, 3, 4 ]
+```
+
+The function supports the following options:
+
+-   **cache**: default cache for resolving array index objects. Must have a `get` method which accepts a single argument: a string identifier associated with an array index.
+
+    If an array index associated with a provided identifier exists, the `get` method should return an object having the following properties:
+
+    -   **data**: the underlying index array.
+    -   **type**: the index type. Must be either `'mask'`, `'bool'`, or `'int'`.
+    -   **dtype**: the [data type][@stdlib/array/dtypes] of the underlying array.
+
+    If an array index is not associated with a provided identifier, the `get` method should return `null`.
+
+    Default: [`ArrayIndex`][@stdlib/array/index].
+
+-   **strict**: boolean indicating whether to enforce strict bounds checking by default. Default: `false`.
+
+By default, the function returns a function which, by default, does **not** enforce strict bounds checking. For example,
+
+```javascript
+var fcn = array2fancy.factory();
+
+var y = fcn( [ 1, 2, 3, 4 ] );
+
+var v = y[ 10 ];
+// returns undefined
+```
+
+To enforce strict bounds checking by default, set the `strict` option to `true`.
+
+<!-- run throws: true -->
+
+```javascript
+var fcn = array2fancy.factory({
+    'strict': true
+});
+var y = fcn( [ 1, 2, 3, 4 ] );
+
+var v = y[ 10 ];
+// throws <RangeError>
+```
+
+The returned function supports the same options as above. When the returned function is provided option values, those values override the factory method defaults.
+
 </section>
 
 <!-- /.usage -->
 
 <!-- Package usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
-<section class="notes">
-
 * * *
+
+<section class="notes">
 
 ## Notes
 
@@ -194,6 +259,72 @@ var v = y[ 10 ];
 -   A fancy array supports all properties and methods of the input array, and, thus, a fancy array can be consumed by any API which supports array-like objects.
 -   Indexing expressions provide a convenient and powerful means for creating and operating on array views; however, their use does entail a performance cost. Indexing expressions are best suited for interactive use (e.g., in the [REPL][@stdlib/repl]) and scripting. For performance critical applications, prefer equivalent functional APIs supporting array-like objects.
 -   In older JavaScript environments which do **not** support [`Proxy`][@stdlib/proxy/ctor] objects, the use of indexing expressions is **not** supported.
+
+### Bounds Checking
+
+By default, fancy arrays do **not** enforce strict bounds checking across index expressions. The motivation for the default fancy array behavior stems from a desire to maintain parity with plain arrays; namely, the returning of `undefined` when accessing a single non-existent property.
+
+Accordingly, when `strict` is `false`, one may observe the following behaviors:
+
+<!-- run throws: true -->
+
+```javascript
+var idx = require( '@stdlib/array-index' );
+
+var x = array2fancy( [ 1, 2, 3, 4 ], {
+    'strict': false
+});
+
+// Access a non-existent property:
+var v = x[ 'foo' ];
+// returns undefined
+
+// Access an out-of-bounds index:
+v = x[ 10 ];
+// returns undefined
+
+v = x[ -10 ];
+// returns undefined
+
+// Access an out-of-bounds slice:
+v = x[ '10:' ];
+// returns []
+
+// Access one or more out-of-bounds indices:
+v = x[ idx( [ 10, 20 ] ) ];
+// throws <RangeError>
+```
+
+When `strict` is `true`, fancy arrays normalize index behavior and consistently enforce strict bounds checking.
+
+<!-- run throws: true -->
+
+```javascript
+var idx = require( '@stdlib/array-index' );
+
+var x = array2fancy( [ 1, 2, 3, 4 ], {
+    'strict': true
+});
+
+// Access a non-existent property:
+var v = x[ 'foo' ];
+// returns undefined
+
+// Access an out-of-bounds index:
+v = x[ 10 ];
+// throws <RangeError>
+
+v = x[ -10 ];
+// throws <RangeError>
+
+// Access an out-of-bounds slice:
+v = x[ '10:' ];
+// throws <RangeError>
+
+// Access one or more out-of-bounds indices:
+v = x[ idx( [ 10, 20 ] ) ];
+// throws <RangeError>
+```
 
 ### Broadcasting
 
@@ -330,48 +461,31 @@ im = imag( v );
 // returns 0.0
 ```
 
-Note, however, that attempting to assign a real-valued array to a complex number array slice is **not** supported due to the ambiguity of whether the real-valued array is a collection of real components (with implied imaginary components equal to zero) or an array of interleaved real and imaginary components.
-
-<!-- run throws: true -->
-
-```javascript
-var Float64Array = require( '@stdlib/array-float64' );
-var Complex128Array = require( '@stdlib/array-complex128' );
-
-var x = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0 ] );
-var y = array2fancy( x );
-
-// Attempt to assign a real-valued array:
-y[ ':' ] = new Float64Array( [ 5.0, 6.0 ] ); // is this a single complex number which should be broadcast or a list of real components with implied imaginary components?
-// throws <Error>
-``` 
-
 </section>
 
 <!-- /.notes -->
 
 <!-- Package usage examples. -->
 
-<section class="examples">
-
 * * *
+
+<section class="examples">
 
 ## Examples
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var Uint8Array = require( '@stdlib/array-uint8' );
+var Int32Array = require( '@stdlib/array-int32' );
+var idx = require( '@stdlib/array-index' );
+var array2fancy = require( '@stdlib/array-to-fancy' );
 
 var x = [ 1, 2, 3, 4, 5, 6 ];
 var y = array2fancy( x );
 // returns <Array>
 
+// Slice retrieval:
 var z = y[ '1::2' ];
 // returns [ 2, 4, 6 ]
 
@@ -381,6 +495,7 @@ z = y[ '-2::-2' ];
 z = y[ '1:4' ];
 // returns [ 2, 3, 4 ]
 
+// Slice assignment:
 y[ '4:1:-1' ] = 10;
 z = y[ ':' ];
 // returns [ 1, 2, 10, 10, 10, 6 ]
@@ -389,10 +504,22 @@ y[ '2:5' ] = [ -10, -9, -8 ];
 z = y[ ':' ];
 // returns [ 1, 2, -10, -9, -8, 6 ]
 
-})();
-</script>
-</body>
-</html>
+// Array index retrieval:
+var i = idx( [ 1, 3, 4 ] ); // integer index array
+z = y[ i ];
+// returns [ 2, -9, -8 ]
+
+i = idx( [ true, false, false, true, true, true ] ); // boolean array
+z = y[ i ];
+// returns [ 1, -9, -8, 6 ]
+
+i = idx( new Uint8Array( [ 0, 0, 1, 0, 0, 1 ] ) ); // mask array
+z = y[ i ];
+// returns [ 1, 2, -9, -8 ]
+
+i = idx( new Int32Array( [ 0, 0, 1, 1, 2, 2 ] ) ); // integer index array
+z = y[ i ];
+// returns [ 1, 1, 2, 2, -10, -10 ]
 ```
 
 </section>
@@ -487,23 +614,27 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/array-to-fancy/main/LICENSE
 
-[@stdlib/repl]: https://github.com/stdlib-js/repl/tree/umd
+[@stdlib/repl]: https://github.com/stdlib-js/repl
 
-[@stdlib/proxy/ctor]: https://github.com/stdlib-js/proxy-ctor/tree/umd
+[@stdlib/proxy/ctor]: https://github.com/stdlib-js/proxy-ctor
 
-[@stdlib/slice/ctor]: https://github.com/stdlib-js/slice-ctor/tree/umd
+[@stdlib/slice/ctor]: https://github.com/stdlib-js/slice-ctor
 
-[@stdlib/slice/seq2slice]: https://github.com/stdlib-js/slice-seq2slice/tree/umd
+[@stdlib/slice/seq2slice]: https://github.com/stdlib-js/slice-seq2slice
 
-[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor/tree/umd
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
 
-[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes/tree/umd
+[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes
 
-[@stdlib/array/mostly-safe-casts]: https://github.com/stdlib-js/array-mostly-safe-casts/tree/umd
+[@stdlib/array/mostly-safe-casts]: https://github.com/stdlib-js/array-mostly-safe-casts
 
-[@stdlib/array/complex128]: https://github.com/stdlib-js/array-complex128/tree/umd
+[@stdlib/array/complex128]: https://github.com/stdlib-js/array-complex128
 
-[@stdlib/array/complex64]: https://github.com/stdlib-js/array-complex64/tree/umd
+[@stdlib/array/complex64]: https://github.com/stdlib-js/array-complex64
+
+[@stdlib/array/index]: https://github.com/stdlib-js/array-index
+
+[@stdlib/array/dtypes]: https://github.com/stdlib-js/array-dtypes
 
 </section>
 
