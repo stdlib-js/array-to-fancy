@@ -76,38 +76,32 @@ v = y[ ':' ];
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/array-to-fancy
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-array2fancy = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var array2fancy = require( 'path/to/vendor/umd/array-to-fancy/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.array2fancy;
-})();
-</script>
+var array2fancy = require( '@stdlib/array-to-fancy' );
 ```
 
 #### array2fancy( x\[, options] )
@@ -481,16 +475,11 @@ im = imag( v );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-index@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var Uint8Array = require( '@stdlib/array-uint8' );
+var Int32Array = require( '@stdlib/array-int32' );
+var idx = require( '@stdlib/array-index' );
+var array2fancy = require( '@stdlib/array-to-fancy' );
 
 var x = [ 1, 2, 3, 4, 5, 6 ];
 var y = array2fancy( x );
@@ -531,11 +520,6 @@ z = y[ i ];
 i = idx( new Int32Array( [ 0, 0, 1, 1, 2, 2 ] ) ); // integer index array
 z = y[ i ];
 // returns [ 1, 1, 2, 2, -10, -10 ]
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -553,6 +537,13 @@ z = y[ i ];
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
 <section class="related">
+
+* * *
+
+## See Also
+
+-   <span class="package-name">[`@stdlib/array-slice`][@stdlib/array/slice]</span><span class="delimiter">: </span><span class="description">return a shallow copy of a portion of an array.</span>
+-   <span class="package-name">[`@stdlib/ndarray-fancy`][@stdlib/ndarray/fancy]</span><span class="delimiter">: </span><span class="description">fancy multidimensional array constructor.</span>
 
 </section>
 
@@ -630,27 +621,35 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/array-to-fancy/main/LICENSE
 
-[@stdlib/repl]: https://github.com/stdlib-js/repl/tree/umd
+[@stdlib/repl]: https://github.com/stdlib-js/repl
 
-[@stdlib/proxy/ctor]: https://github.com/stdlib-js/proxy-ctor/tree/umd
+[@stdlib/proxy/ctor]: https://github.com/stdlib-js/proxy-ctor
 
-[@stdlib/slice/ctor]: https://github.com/stdlib-js/slice-ctor/tree/umd
+[@stdlib/slice/ctor]: https://github.com/stdlib-js/slice-ctor
 
-[@stdlib/slice/seq2slice]: https://github.com/stdlib-js/slice-seq2slice/tree/umd
+[@stdlib/slice/seq2slice]: https://github.com/stdlib-js/slice-seq2slice
 
-[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor/tree/umd
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
 
-[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes/tree/umd
+[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes
 
-[@stdlib/array/mostly-safe-casts]: https://github.com/stdlib-js/array-mostly-safe-casts/tree/umd
+[@stdlib/array/mostly-safe-casts]: https://github.com/stdlib-js/array-mostly-safe-casts
 
-[@stdlib/array/complex128]: https://github.com/stdlib-js/array-complex128/tree/umd
+[@stdlib/array/complex128]: https://github.com/stdlib-js/array-complex128
 
-[@stdlib/array/complex64]: https://github.com/stdlib-js/array-complex64/tree/umd
+[@stdlib/array/complex64]: https://github.com/stdlib-js/array-complex64
 
-[@stdlib/array/index]: https://github.com/stdlib-js/array-index/tree/umd
+[@stdlib/array/index]: https://github.com/stdlib-js/array-index
 
-[@stdlib/array/dtypes]: https://github.com/stdlib-js/array-dtypes/tree/umd
+[@stdlib/array/dtypes]: https://github.com/stdlib-js/array-dtypes
+
+<!-- <related-links> -->
+
+[@stdlib/array/slice]: https://github.com/stdlib-js/array-slice
+
+[@stdlib/ndarray/fancy]: https://github.com/stdlib-js/ndarray-fancy
+
+<!-- </related-links> -->
 
 </section>
 
