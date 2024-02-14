@@ -538,6 +538,13 @@ z = y[ i ];
 
 <section class="related">
 
+* * *
+
+## See Also
+
+-   <span class="package-name">[`@stdlib/array-slice`][@stdlib/array/slice]</span><span class="delimiter">: </span><span class="description">return a shallow copy of a portion of an array.</span>
+-   <span class="package-name">[`@stdlib/ndarray-fancy`][@stdlib/ndarray/fancy]</span><span class="delimiter">: </span><span class="description">fancy multidimensional array constructor.</span>
+
 </section>
 
 <!-- /.related -->
@@ -635,6 +642,14 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [@stdlib/array/index]: https://github.com/stdlib-js/array-index
 
 [@stdlib/array/dtypes]: https://github.com/stdlib-js/array-dtypes
+
+<!-- <related-links> -->
+
+[@stdlib/array/slice]: https://github.com/stdlib-js/array-slice
+
+[@stdlib/ndarray/fancy]: https://github.com/stdlib-js/ndarray-fancy
+
+<!-- </related-links> -->
 
 </section>
 
