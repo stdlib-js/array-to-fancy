@@ -241,6 +241,19 @@ var v = y[ 10 ];
 
 The returned function supports the same options as above. When the returned function is provided option values, those values override the factory method defaults.
 
+#### array2fancy.idx( x\[, options] )
+
+Wraps a provided array as an array index object.
+
+```javascript
+var x = [ 1, 2, 3, 4 ];
+
+var idx = array2fancy.idx( x );
+// returns <ArrayIndex>
+```
+
+For documentation and usage, see [`ArrayIndex`][@stdlib/array/index]
+
 </section>
 
 <!-- /.usage -->
@@ -269,8 +282,6 @@ Accordingly, when `strict` is `false`, one may observe the following behaviors:
 <!-- run throws: true -->
 
 ```javascript
-var idx = require( '@stdlib/array-index' );
-
 var x = array2fancy( [ 1, 2, 3, 4 ], {
     'strict': false
 });
@@ -291,7 +302,8 @@ v = x[ '10:' ];
 // returns []
 
 // Access one or more out-of-bounds indices:
-v = x[ idx( [ 10, 20 ] ) ];
+var i = array2fancy.idx( [ 10, 20 ] );
+v = x[ i ];
 // throws <RangeError>
 ```
 
@@ -300,8 +312,6 @@ When `strict` is `true`, fancy arrays normalize index behavior and consistently 
 <!-- run throws: true -->
 
 ```javascript
-var idx = require( '@stdlib/array-index' );
-
 var x = array2fancy( [ 1, 2, 3, 4 ], {
     'strict': true
 });
@@ -322,7 +332,8 @@ v = x[ '10:' ];
 // throws <RangeError>
 
 // Access one or more out-of-bounds indices:
-v = x[ idx( [ 10, 20 ] ) ];
+var i = array2fancy.idx( [ 10, 20 ] );
+v = x[ i ];
 // throws <RangeError>
 ```
 
@@ -478,7 +489,6 @@ im = imag( v );
 ```javascript
 var Uint8Array = require( '@stdlib/array-uint8' );
 var Int32Array = require( '@stdlib/array-int32' );
-var idx = require( '@stdlib/array-index' );
 var array2fancy = require( '@stdlib/array-to-fancy' );
 
 var x = [ 1, 2, 3, 4, 5, 6 ];
@@ -505,6 +515,8 @@ z = y[ ':' ];
 // returns [ 1, 2, -10, -9, -8, 6 ]
 
 // Array index retrieval:
+var idx = array2fancy.idx;
+
 var i = idx( [ 1, 3, 4 ] ); // integer index array
 z = y[ i ];
 // returns [ 2, -9, -8 ]
