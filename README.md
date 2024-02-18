@@ -42,7 +42,7 @@ limitations under the License.
 An array supporting **fancy indexing** is an array which supports slicing via indexing expressions for both retrieval and assignment.
 
 ```javascript
-import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@deno/mod.js';
+var array2fancy = require( '@stdlib/array-to-fancy' );
 
 // Create a plain array:
 var x = [ 1, 2, 3, 4, 5, 6, 7, 8 ];
@@ -76,20 +76,32 @@ v = y[ ':' ];
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/array-to-fancy
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@deno/mod.js';
-```
-
-You can also import the following named exports from the package:
-
-```javascript
-import { factory } from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@deno/mod.js';
+var array2fancy = require( '@stdlib/array-to-fancy' );
 ```
 
 #### array2fancy( x\[, options] )
@@ -97,7 +109,7 @@ import { factory } from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@de
 Converts an array to an object supporting fancy indexing.
 
 ```javascript
-import Slice from 'https://cdn.jsdelivr.net/gh/stdlib-js/slice-ctor@deno/mod.js';
+var Slice = require( '@stdlib/slice-ctor' );
 
 var x = [ 1, 2, 3, 4 ];
 
@@ -229,6 +241,19 @@ var v = y[ 10 ];
 
 The returned function supports the same options as above. When the returned function is provided option values, those values override the factory method defaults.
 
+#### array2fancy.idx( x\[, options] )
+
+Wraps a provided array as an array index object.
+
+```javascript
+var x = [ 1, 2, 3, 4 ];
+
+var idx = array2fancy.idx( x );
+// returns <ArrayIndex>
+```
+
+For documentation and usage, see [`ArrayIndex`][@stdlib/array/index]
+
 </section>
 
 <!-- /.usage -->
@@ -257,8 +282,6 @@ Accordingly, when `strict` is `false`, one may observe the following behaviors:
 <!-- run throws: true -->
 
 ```javascript
-import idx from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-index@deno/mod.js';
-
 var x = array2fancy( [ 1, 2, 3, 4 ], {
     'strict': false
 });
@@ -279,7 +302,8 @@ v = x[ '10:' ];
 // returns []
 
 // Access one or more out-of-bounds indices:
-v = x[ idx( [ 10, 20 ] ) ];
+var i = array2fancy.idx( [ 10, 20 ] );
+v = x[ i ];
 // throws <RangeError>
 ```
 
@@ -288,8 +312,6 @@ When `strict` is `true`, fancy arrays normalize index behavior and consistently 
 <!-- run throws: true -->
 
 ```javascript
-import idx from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-index@deno/mod.js';
-
 var x = array2fancy( [ 1, 2, 3, 4 ], {
     'strict': true
 });
@@ -310,7 +332,8 @@ v = x[ '10:' ];
 // throws <RangeError>
 
 // Access one or more out-of-bounds indices:
-v = x[ idx( [ 10, 20 ] ) ];
+var i = array2fancy.idx( [ 10, 20 ] );
+v = x[ i ];
 // throws <RangeError>
 ```
 
@@ -387,8 +410,8 @@ y[ '10:20' ] = [ 8, 9, 10, 11 ];
 Fancy arrays support [(mostly) safe casts][@stdlib/array/mostly-safe-casts] (i.e., any cast which can be performed without overflow or loss of precision, with the exception of floating-point arrays which are also allowed to downcast from higher precision to lower precision).
 
 ```javascript
-import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@deno/mod.js';
-import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@deno/mod.js';
+var Uint8Array = require( '@stdlib/array-uint8' );
+var Int32Array = require( '@stdlib/array-int32' );
 
 var x = new Int32Array( [ 1, 2, 3, 4 ] );
 var y = array2fancy( x );
@@ -402,7 +425,7 @@ When attempting to perform an unsafe cast, fancy arrays will raise an exception.
 <!-- run throws: true -->
 
 ```javascript
-import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@deno/mod.js';
+var Uint8Array = require( '@stdlib/array-uint8' );
 
 var x = new Uint8Array( [ 1, 2, 3, 4 ] );
 var y = array2fancy( x );
@@ -419,9 +442,9 @@ y[ ':' ] = -3;
 When assigning a real-valued scalar to a complex number array (e.g., [`Complex128Array`][@stdlib/array/complex128] or [`Complex64Array`][@stdlib/array/complex64]), a fancy array will cast the real-valued scalar to a complex number argument having an imaginary component equal to zero.
 
 ```javascript
-import Complex128Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex128@deno/mod.js';
-import real from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-real@deno/mod.js';
-import imag from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-imag@deno/mod.js';
+var Complex128Array = require( '@stdlib/array-complex128' );
+var real = require( '@stdlib/complex-real' );
+var imag = require( '@stdlib/complex-imag' );
 
 var x = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ] );
 var y = array2fancy( x );
@@ -464,10 +487,9 @@ im = imag( v );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@deno/mod.js';
-import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@deno/mod.js';
-import idx from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-index@deno/mod.js';
-import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@deno/mod.js';
+var Uint8Array = require( '@stdlib/array-uint8' );
+var Int32Array = require( '@stdlib/array-int32' );
+var array2fancy = require( '@stdlib/array-to-fancy' );
 
 var x = [ 1, 2, 3, 4, 5, 6 ];
 var y = array2fancy( x );
@@ -493,6 +515,8 @@ z = y[ ':' ];
 // returns [ 1, 2, -10, -9, -8, 6 ]
 
 // Array index retrieval:
+var idx = array2fancy.idx;
+
 var i = idx( [ 1, 3, 4 ] ); // integer index array
 z = y[ i ];
 // returns [ 2, -9, -8 ]
@@ -546,7 +570,7 @@ z = y[ i ];
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -609,33 +633,33 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/array-to-fancy/main/LICENSE
 
-[@stdlib/repl]: https://github.com/stdlib-js/repl/tree/deno
+[@stdlib/repl]: https://github.com/stdlib-js/repl
 
-[@stdlib/proxy/ctor]: https://github.com/stdlib-js/proxy-ctor/tree/deno
+[@stdlib/proxy/ctor]: https://github.com/stdlib-js/proxy-ctor
 
-[@stdlib/slice/ctor]: https://github.com/stdlib-js/slice-ctor/tree/deno
+[@stdlib/slice/ctor]: https://github.com/stdlib-js/slice-ctor
 
-[@stdlib/slice/seq2slice]: https://github.com/stdlib-js/slice-seq2slice/tree/deno
+[@stdlib/slice/seq2slice]: https://github.com/stdlib-js/slice-seq2slice
 
-[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor/tree/deno
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
 
-[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes/tree/deno
+[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes
 
-[@stdlib/array/mostly-safe-casts]: https://github.com/stdlib-js/array-mostly-safe-casts/tree/deno
+[@stdlib/array/mostly-safe-casts]: https://github.com/stdlib-js/array-mostly-safe-casts
 
-[@stdlib/array/complex128]: https://github.com/stdlib-js/array-complex128/tree/deno
+[@stdlib/array/complex128]: https://github.com/stdlib-js/array-complex128
 
-[@stdlib/array/complex64]: https://github.com/stdlib-js/array-complex64/tree/deno
+[@stdlib/array/complex64]: https://github.com/stdlib-js/array-complex64
 
-[@stdlib/array/index]: https://github.com/stdlib-js/array-index/tree/deno
+[@stdlib/array/index]: https://github.com/stdlib-js/array-index
 
-[@stdlib/array/dtypes]: https://github.com/stdlib-js/array-dtypes/tree/deno
+[@stdlib/array/dtypes]: https://github.com/stdlib-js/array-dtypes
 
 <!-- <related-links> -->
 
-[@stdlib/array/slice]: https://github.com/stdlib-js/array-slice/tree/deno
+[@stdlib/array/slice]: https://github.com/stdlib-js/array-slice
 
-[@stdlib/ndarray/fancy]: https://github.com/stdlib-js/ndarray-fancy/tree/deno
+[@stdlib/ndarray/fancy]: https://github.com/stdlib-js/ndarray-fancy
 
 <!-- </related-links> -->
 
