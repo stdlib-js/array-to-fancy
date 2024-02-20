@@ -23,7 +23,7 @@ var ee=require('@stdlib/assert-is-string/dist').isPrimitive,te=M();function ie(r
 });var X=u(function(Ct,Q){
 var ae=require('@stdlib/string-base-trim/dist'),ne=require('@stdlib/error-tools-fmtprodmsg/dist');function se(r){return r.substring(11,r.length-1)}function ue(r,i){var a=i.get(se(ae(r)));if(a===null)throw new Error(ne('1rXFa',r));return a}Q.exports=ue
 });var $=u(function(Ot,Y){
-var oe=require('@stdlib/array-take/dist'),ce=require('@stdlib/array-base-mskfilter/dist'),ve=require('@stdlib/array-base-mskreject/dist'),le=require('@stdlib/error-tools-fmtprodmsg/dist'),fe=X();function pe(r,i,a){var t=fe(i,a.cache);if(t.type==="int")return a.postGetArray(oe(r,t.data));if(t.type==="bool")return a.postGetArray(ce(r,t.data));if(t.type==="mask")return a.postGetArray(ve(r,t.data));throw new Error(le('1rXFZ',t.type))}Y.exports=pe
+var oe=require('@stdlib/array-take/dist'),ce=require('@stdlib/array-mskfilter/dist'),ve=require('@stdlib/array-mskreject/dist'),le=require('@stdlib/error-tools-fmtprodmsg/dist'),fe=X();function pe(r,i,a){var t=fe(i,a.cache);if(t.type==="int")return a.postGetArray(oe(r,t.data));if(t.type==="bool")return a.postGetArray(ce(r,t.data));if(t.type==="mask")return a.postGetArray(ve(r,t.data));throw new Error(le('1rXFZ',t.type))}Y.exports=pe
 });var g=u(function(Gt,H){
 var ye=require('@stdlib/ndarray-base-normalize-index/dist'),de=require('@stdlib/error-tools-fmtprodmsg/dist');function qe(r,i,a){var t,n;if(t=parseInt(r,10),n=ye(t,i-1),n===-1){if(a)throw new RangeError(de('1rXFY'));return t}return n}H.exports=qe
 });var K=u(function(Ft,J){
@@ -31,7 +31,7 @@ var ge=g();function me(r,i,a){return a.getter(r,ge(i,r.length,a.strict))}J.expor
 });var rr=u(function(Lt,Z){
 var he=require('@stdlib/assert-is-function/dist');function we(r,i,a,t){var n=r[i];if(he(n))return n===r.constructor?t.ctor:s;return n;function s(){var e,o;for(e=[],o=0;o<arguments.length;o++)e.push(arguments[o]);return n.apply(this===a?r:this,e)}}Z.exports=we
 });var m=u(function(jt,er){
-var Ee=require('@stdlib/string-base-replace/dist');function be(r){return Ee(r,/^invalid argument/,"invalid operation")}er.exports=be
+var Ee=require('@stdlib/string-base-replace/dist');function be(r){return Ee(r,/^invalid arguments?/,"invalid operation")}er.exports=be
 });var ir=u(function(Bt,tr){
 var Se=/:/;tr.exports=Se
 });var h=u(function(Mt,nr){
