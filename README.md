@@ -42,7 +42,7 @@ limitations under the License.
 An array supporting **fancy indexing** is an array which supports slicing via indexing expressions for both retrieval and assignment.
 
 ```javascript
-import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.1.1-deno/mod.js';
+import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@deno/mod.js';
 
 // Create a plain array:
 var x = [ 1, 2, 3, 4, 5, 6, 7, 8 ];
@@ -83,13 +83,18 @@ v = y[ ':' ];
 ## Usage
 
 ```javascript
+import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@deno/mod.js';
+```
+The previous example will load the latest bundled code from the deno branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/array-to-fancy/tags). For example,
+
+```javascript
 import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.1.1-deno/mod.js';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { factory, idx } from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.1.1-deno/mod.js';
+import { factory, idx } from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@deno/mod.js';
 ```
 
 #### array2fancy( x\[, options] )
@@ -477,7 +482,7 @@ im = imag( v );
 ```javascript
 import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@deno/mod.js';
 import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@deno/mod.js';
-import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.1.1-deno/mod.js';
+import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@deno/mod.js';
 
 var x = [ 1, 2, 3, 4, 5, 6 ];
 var y = array2fancy( x );
