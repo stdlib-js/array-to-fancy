@@ -85,6 +85,11 @@ v = y[ ':' ];
 To use in Observable,
 
 ```javascript
+array2fancy = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@umd/browser.js' )
+```
+The previous example will load the latest bundled code from the umd branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/array-to-fancy/tags). For example,
+
+```javascript
 array2fancy = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.1.1-umd/browser.js' )
 ```
 
@@ -97,7 +102,7 @@ var array2fancy = require( 'path/to/vendor/umd/array-to-fancy/index.js' )
 To include the bundle in a webpage,
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.1.1-umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@umd/browser.js"></script>
 ```
 
 If no recognized module system is present, access bundle contents via the global scope:
@@ -498,7 +503,7 @@ im = imag( v );
 <body>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@umd/browser.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.1.1-umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@umd/browser.js"></script>
 <script type="text/javascript">
 (function () {
 
