@@ -100,7 +100,7 @@
     "@stdlib/assert-is-same-complex64array": "^0.2.1",
     "@stdlib/assert-is-syntax-error": "^0.2.1",
     "@stdlib/assert-is-type-error": "^0.2.1",
-    "@stdlib/complex-float64": "^0.2.1",
+    "@stdlib/complex-float64-ctor": "github:stdlib-js/complex-float64-ctor#main",
     "@stdlib/slice-ctor": "^0.2.1",
     "@stdlib/symbol-ctor": "^0.2.1",
     "@stdlib/utils-properties-in": "^0.2.1",
