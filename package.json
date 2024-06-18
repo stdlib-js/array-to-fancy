@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@stdlib/array-base-arraylike2object": "^0.2.1",
+    "@stdlib/array-base-assert-is-boolean-data-type": "github:stdlib-js/array-base-assert-is-boolean-data-type#main",
     "@stdlib/array-base-assert-is-complex-floating-point-data-type": "^0.2.1",
     "@stdlib/array-base-assert-is-real-floating-point-data-type": "^0.2.1",
     "@stdlib/array-base-assert-is-safe-data-type-cast": "^0.3.1",
@@ -51,6 +52,7 @@
     "@stdlib/array-min-dtype": "^0.2.1",
     "@stdlib/array-mskfilter": "^0.1.1",
     "@stdlib/array-mskreject": "^0.1.1",
+    "@stdlib/array-put": "github:stdlib-js/array-put#main",
     "@stdlib/array-take": "^0.1.1",
     "@stdlib/assert-has-own-property": "^0.2.1",
     "@stdlib/assert-has-property": "^0.2.1",
@@ -80,6 +82,7 @@
   },
   "devDependencies": {
     "@stdlib/array-base-to-accessor-array": "^0.2.1",
+    "@stdlib/array-bool": "github:stdlib-js/array-bool#main",
     "@stdlib/array-complex128": "^0.2.1",
     "@stdlib/array-complex64": "^0.2.1",
     "@stdlib/array-filled": "^0.2.1",
