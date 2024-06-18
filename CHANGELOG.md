@@ -23,6 +23,7 @@
 
 <details>
 
+-   [`074cbef`](https://github.com/stdlib-js/stdlib/commit/074cbef3f9d616c37c2be856a949e257481ff2fc) - **docs:** add note concerning broadcasting of nested array elements _(by Athan Reines)_
 -   [`b079d65`](https://github.com/stdlib-js/stdlib/commit/b079d653226019925581555fdaf9aa927ec69c0e) - **feat:** add support for integer array indexing assignment _(by Athan Reines)_
 -   [`96e896a`](https://github.com/stdlib-js/stdlib/commit/96e896a39be08912b2e06dfb6b671ec13d042412) - **feat:** add support for boolean array indices _(by Athan Reines)_
 -   [`75d4f83`](https://github.com/stdlib-js/stdlib/commit/75d4f83cb85610d23a04dc21a03f8075f6d3665f) - **refactor:** update require and include paths _(by Athan Reines)_
