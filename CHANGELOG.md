@@ -24,6 +24,7 @@
 
 <details>
 
+-   [`b981bc3`](https://github.com/stdlib-js/stdlib/commit/b981bc30e83a7f88cdc2c0efca082fb31f9e1ac0) - **refactor:** avoid repeated property access _(by Athan Reines)_
 -   [`550285b`](https://github.com/stdlib-js/stdlib/commit/550285bf4a57dd3dabc8ed3998e7b612515fe082) - **feat:** add support for boolean and mask array assignment _(by Athan Reines)_
 -   [`074cbef`](https://github.com/stdlib-js/stdlib/commit/074cbef3f9d616c37c2be856a949e257481ff2fc) - **docs:** add note concerning broadcasting of nested array elements _(by Athan Reines)_
 -   [`b079d65`](https://github.com/stdlib-js/stdlib/commit/b079d653226019925581555fdaf9aa927ec69c0e) - **feat:** add support for integer array indexing assignment _(by Athan Reines)_
