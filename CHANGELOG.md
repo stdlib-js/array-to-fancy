@@ -4,12 +4,13 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2024-06-18)
+## Unreleased (2024-06-19)
 
 <section class="features">
 
 ### Features
 
+-   [`550285b`](https://github.com/stdlib-js/stdlib/commit/550285bf4a57dd3dabc8ed3998e7b612515fe082) - add support for boolean and mask array assignment
 -   [`b079d65`](https://github.com/stdlib-js/stdlib/commit/b079d653226019925581555fdaf9aa927ec69c0e) - add support for integer array indexing assignment
 -   [`96e896a`](https://github.com/stdlib-js/stdlib/commit/96e896a39be08912b2e06dfb6b671ec13d042412) - add support for boolean array indices
 
@@ -23,6 +24,7 @@
 
 <details>
 
+-   [`550285b`](https://github.com/stdlib-js/stdlib/commit/550285bf4a57dd3dabc8ed3998e7b612515fe082) - **feat:** add support for boolean and mask array assignment _(by Athan Reines)_
 -   [`074cbef`](https://github.com/stdlib-js/stdlib/commit/074cbef3f9d616c37c2be856a949e257481ff2fc) - **docs:** add note concerning broadcasting of nested array elements _(by Athan Reines)_
 -   [`b079d65`](https://github.com/stdlib-js/stdlib/commit/b079d653226019925581555fdaf9aa927ec69c0e) - **feat:** add support for integer array indexing assignment _(by Athan Reines)_
 -   [`96e896a`](https://github.com/stdlib-js/stdlib/commit/96e896a39be08912b2e06dfb6b671ec13d042412) - **feat:** add support for boolean array indices _(by Athan Reines)_
