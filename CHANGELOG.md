@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2024-06-20)
+## Unreleased (2024-06-21)
 
 <section class="features">
 
@@ -18,12 +18,23 @@
 
 <!-- /.features -->
 
+<section class="bug-fixes">
+
+### Bug Fixes
+
+-   [`d301be9`](https://github.com/stdlib-js/stdlib/commit/d301be9e2cabe07efe219c00d10aebd15e0673e7) - ensure support for real-to-complex casting in boolean and mask array indexing
+
+</section>
+
+<!-- /.bug-fixes -->
+
 <section class="commits">
 
 ### Commits
 
 <details>
 
+-   [`d301be9`](https://github.com/stdlib-js/stdlib/commit/d301be9e2cabe07efe219c00d10aebd15e0673e7) - **fix:** ensure support for real-to-complex casting in boolean and mask array indexing _(by Athan Reines)_
 -   [`e57ccb2`](https://github.com/stdlib-js/stdlib/commit/e57ccb234687de4087aa12348d266ea448f3f241) - **refactor:** update boolean array indexing implementation and add tests _(by Athan Reines)_
 -   [`b981bc3`](https://github.com/stdlib-js/stdlib/commit/b981bc30e83a7f88cdc2c0efca082fb31f9e1ac0) - **refactor:** avoid repeated property access _(by Athan Reines)_
 -   [`550285b`](https://github.com/stdlib-js/stdlib/commit/550285bf4a57dd3dabc8ed3998e7b612515fe082) - **feat:** add support for boolean and mask array assignment _(by Athan Reines)_
