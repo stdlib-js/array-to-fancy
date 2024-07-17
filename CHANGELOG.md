@@ -34,6 +34,7 @@
 
 <details>
 
+-   [`32bbcb3`](https://github.com/stdlib-js/stdlib/commit/32bbcb3b3dae1f028fd18166ee7875a93d44d0ee) - **refactor:** update paths _(by Athan Reines)_
 -   [`ed9c0a5`](https://github.com/stdlib-js/stdlib/commit/ed9c0a5e55ff09af3dd6af8c38615480e2c1828e) - **refactor:** update paths _(by Athan Reines)_
 -   [`d301be9`](https://github.com/stdlib-js/stdlib/commit/d301be9e2cabe07efe219c00d10aebd15e0673e7) - **fix:** ensure support for real-to-complex casting in boolean and mask array indexing _(by Athan Reines)_
 -   [`e57ccb2`](https://github.com/stdlib-js/stdlib/commit/e57ccb234687de4087aa12348d266ea448f3f241) - **refactor:** update boolean array indexing implementation and add tests _(by Athan Reines)_
