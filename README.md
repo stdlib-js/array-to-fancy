@@ -42,7 +42,7 @@ limitations under the License.
 An array supporting **fancy indexing** is an array which supports slicing via indexing expressions for both retrieval and assignment.
 
 ```javascript
-import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.2.0-esm/index.mjs';
+import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@esm/index.mjs';
 
 // Create a plain array:
 var x = [ 1, 2, 3, 4, 5, 6, 7, 8 ];
@@ -83,13 +83,18 @@ v = y[ ':' ];
 ## Usage
 
 ```javascript
+import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@esm/index.mjs';
+```
+The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/array-to-fancy/tags). For example,
+
+```javascript
 import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.2.0-esm/index.mjs';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { factory, idx } from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.2.0-esm/index.mjs';
+import { factory, idx } from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@esm/index.mjs';
 ```
 
 #### array2fancy( x\[, options] )
@@ -501,7 +506,7 @@ im = imag( v );
 import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@esm/index.mjs';
 import Int32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@esm/index.mjs';
 import BooleanArray from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-bool@esm/index.mjs';
-import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.2.0-esm/index.mjs';
+import array2fancy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@esm/index.mjs';
 
 var x = [ 1, 2, 3, 4, 5, 6 ];
 var y = array2fancy( x );
