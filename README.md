@@ -85,7 +85,7 @@ v = y[ ':' ];
 To use in Observable,
 
 ```javascript
-array2fancy = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@umd/browser.js' )
+array2fancy = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.2.0-umd/browser.js' )
 ```
 
 To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
@@ -97,7 +97,7 @@ var array2fancy = require( 'path/to/vendor/umd/array-to-fancy/index.js' )
 To include the bundle in a webpage,
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.2.0-umd/browser.js"></script>
 ```
 
 If no recognized module system is present, access bundle contents via the global scope:
@@ -517,7 +517,7 @@ im = imag( v );
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@umd/browser.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-int32@umd/browser.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-bool@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-to-fancy@v0.2.0-umd/browser.js"></script>
 <script type="text/javascript">
 (function () {
 
