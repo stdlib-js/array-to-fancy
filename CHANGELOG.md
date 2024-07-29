@@ -2,9 +2,9 @@
 
 > Package changelog.
 
-<section class="release" id="unreleased">
+<section class="release" id="v0.2.0">
 
-## Unreleased (2024-07-17)
+## 0.2.0 (2024-07-29)
 
 <section class="features">
 
@@ -77,9 +77,6 @@ A total of 1 person contributed to this release. Thank you to this contributor:
 
 -   [`962c155`](https://github.com/stdlib-js/stdlib/commit/962c155e95241834642825085dd4aff8c2f875b3) - add boolean array tests
 -   [`415d506`](https://github.com/stdlib-js/stdlib/commit/415d506180557388d51b876c50139f1c9f1a7760) - attach `ArrayIndex` constructor to the main export
--   [`993f468`](https://github.com/stdlib-js/stdlib/commit/993f4689776ac7bb86a9eed3bd5977c3549b5e1a) - add support for using index arrays in indexing expressions
--   [`4394246`](https://github.com/stdlib-js/stdlib/commit/4394246274c5fe1ab05e4b4dafad3217faddcb2b) - add `factory` method for specifying defaults
--   [`7d12ad0`](https://github.com/stdlib-js/stdlib/commit/7d12ad043d0b88e96bf645ccbe8129fcdb1f4a9e) - add `array/to-fancy`
 
 </section>
 
@@ -90,8 +87,6 @@ A total of 1 person contributed to this release. Thank you to this contributor:
 ### Bug Fixes
 
 -   [`516b608`](https://github.com/stdlib-js/stdlib/commit/516b60845854eba062430bfb19073a74736c80a0) - support additional error messages
--   [`29e4c99`](https://github.com/stdlib-js/stdlib/commit/29e4c992e11959432a5347528df132ec56d54121) - propagate options when invoking constructor
--   [`7eeb330`](https://github.com/stdlib-js/stdlib/commit/7eeb3302172e9a86aa53c803fca6c7b2d2402281) - refactor to preserve constructor behavior and propagate fanciness to returned slices
 
 </section>
 
@@ -115,6 +110,62 @@ A total of 1 person contributed to this release. Thank you to this contributor:
 -   [`baae4a9`](https://github.com/stdlib-js/stdlib/commit/baae4a9fda67def76d8668e4417c9f9c3bffd024) - **docs:** fix missing period _(by Athan Reines)_
 -   [`bf00a42`](https://github.com/stdlib-js/stdlib/commit/bf00a4264a988a748bfbba8c23516ac958660a0f) - **test:** add `ArrayIndex` constructor tests _(by Athan Reines)_
 -   [`415d506`](https://github.com/stdlib-js/stdlib/commit/415d506180557388d51b876c50139f1c9f1a7760) - **feat:** attach `ArrayIndex` constructor to the main export _(by Athan Reines)_
+
+</details>
+
+</section>
+
+<!-- /.commits -->
+
+<section class="contributors">
+
+### Contributors
+
+A total of 1 person contributed to this release. Thank you to this contributor:
+
+-   Athan Reines
+
+</section>
+
+<!-- /.contributors -->
+
+</section>
+
+<!-- /.release -->
+
+<section class="release" id="v0.1.0">
+
+## 0.1.0 (2024-02-15)
+
+<section class="features">
+
+### Features
+
+-   [`993f468`](https://github.com/stdlib-js/stdlib/commit/993f4689776ac7bb86a9eed3bd5977c3549b5e1a) - add support for using index arrays in indexing expressions
+-   [`4394246`](https://github.com/stdlib-js/stdlib/commit/4394246274c5fe1ab05e4b4dafad3217faddcb2b) - add `factory` method for specifying defaults
+-   [`7d12ad0`](https://github.com/stdlib-js/stdlib/commit/7d12ad043d0b88e96bf645ccbe8129fcdb1f4a9e) - add `array/to-fancy`
+
+</section>
+
+<!-- /.features -->
+
+<section class="bug-fixes">
+
+### Bug Fixes
+
+-   [`29e4c99`](https://github.com/stdlib-js/stdlib/commit/29e4c992e11959432a5347528df132ec56d54121) - propagate options when invoking constructor
+-   [`7eeb330`](https://github.com/stdlib-js/stdlib/commit/7eeb3302172e9a86aa53c803fca6c7b2d2402281) - refactor to preserve constructor behavior and propagate fanciness to returned slices
+
+</section>
+
+<!-- /.bug-fixes -->
+
+<section class="commits">
+
+### Commits
+
+<details>
+
 -   [`3e53527`](https://github.com/stdlib-js/stdlib/commit/3e53527323fd705302af15cc66e5dffe45f2cd12) - **bench:** avoid running benchmarks in environments lacking Proxy support _(by Athan Reines)_
 -   [`7137673`](https://github.com/stdlib-js/stdlib/commit/7137673f0798ef13d7c9fd7becf78e557b1d583b) - **docs:** update related packages sections (#1315) _(by stdlib-bot)_
 -   [`d278dc9`](https://github.com/stdlib-js/stdlib/commit/d278dc97ff3c6cbf19dd1ab1fa509b17651ec5db) - **docs:** update note _(by Athan Reines)_
