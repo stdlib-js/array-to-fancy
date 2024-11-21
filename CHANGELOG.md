@@ -2,6 +2,50 @@
 
 > Package changelog.
 
+<section class="release" id="unreleased">
+
+## Unreleased (2024-11-21)
+
+<section class="bug-fixes">
+
+### Bug Fixes
+
+-   [`dcfa1d6`](https://github.com/stdlib-js/stdlib/commit/dcfa1d62126625847df6517662851e812ef997be) - update import name
+
+</section>
+
+<!-- /.bug-fixes -->
+
+<section class="commits">
+
+### Commits
+
+<details>
+
+-   [`dcfa1d6`](https://github.com/stdlib-js/stdlib/commit/dcfa1d62126625847df6517662851e812ef997be) - **fix:** update import name _(by Athan Reines)_
+
+</details>
+
+</section>
+
+<!-- /.commits -->
+
+<section class="contributors">
+
+### Contributors
+
+A total of 1 person contributed to this release. Thank you to this contributor:
+
+-   Athan Reines
+
+</section>
+
+<!-- /.contributors -->
+
+</section>
+
+<!-- /.release -->
+
 <section class="release" id="v0.2.0">
 
 ## 0.2.0 (2024-07-29)
