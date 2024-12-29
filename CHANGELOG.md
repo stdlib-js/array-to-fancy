@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2024-12-15)
+## Unreleased (2024-12-29)
 
 <section class="bug-fixes">
 
@@ -23,6 +23,7 @@
 
 <details>
 
+-   [`64e4bd6`](https://github.com/stdlib-js/stdlib/commit/64e4bd6055042207ce2e5ae6687ca8992b06367f) - **docs:** fix missing option description _(by Athan Reines)_
 -   [`629ce7b`](https://github.com/stdlib-js/stdlib/commit/629ce7bfa31b0d263f36fd597bb67acfc87689ff) - **fix:** ensure support for typed arrays larger than 2^32-1 _(by Athan Reines)_
 -   [`02fe522`](https://github.com/stdlib-js/stdlib/commit/02fe52268be65ac41e413c27cef0f1f83b94636a) - **refactor:** remove unused file _(by Athan Reines)_
 -   [`dcfa1d6`](https://github.com/stdlib-js/stdlib/commit/dcfa1d62126625847df6517662851e812ef997be) - **fix:** update import name _(by Athan Reines)_
