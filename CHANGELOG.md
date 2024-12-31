@@ -4,12 +4,13 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2024-12-29)
+## Unreleased (2024-12-31)
 
 <section class="bug-fixes">
 
 ### Bug Fixes
 
+-   [`78087d9`](https://github.com/stdlib-js/stdlib/commit/78087d9a551783d642d885fb42b89b4e23acd671) - provide missing argument to function
 -   [`629ce7b`](https://github.com/stdlib-js/stdlib/commit/629ce7bfa31b0d263f36fd597bb67acfc87689ff) - ensure support for typed arrays larger than 2^32-1
 -   [`dcfa1d6`](https://github.com/stdlib-js/stdlib/commit/dcfa1d62126625847df6517662851e812ef997be) - update import name
 
@@ -23,6 +24,8 @@
 
 <details>
 
+-   [`78087d9`](https://github.com/stdlib-js/stdlib/commit/78087d9a551783d642d885fb42b89b4e23acd671) - **fix:** provide missing argument to function _(by Athan Reines)_
+-   [`c13c153`](https://github.com/stdlib-js/stdlib/commit/c13c1532c804118dc9ccbcb81867d7723215f671) - **docs:** document exceptions _(by Athan Reines)_
 -   [`64e4bd6`](https://github.com/stdlib-js/stdlib/commit/64e4bd6055042207ce2e5ae6687ca8992b06367f) - **docs:** fix missing option description _(by Athan Reines)_
 -   [`629ce7b`](https://github.com/stdlib-js/stdlib/commit/629ce7bfa31b0d263f36fd597bb67acfc87689ff) - **fix:** ensure support for typed arrays larger than 2^32-1 _(by Athan Reines)_
 -   [`02fe522`](https://github.com/stdlib-js/stdlib/commit/02fe52268be65ac41e413c27cef0f1f83b94636a) - **refactor:** remove unused file _(by Athan Reines)_
