@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2024-12-31)
+## Unreleased (2025-01-04)
 
 <section class="bug-fixes">
 
@@ -24,6 +24,7 @@
 
 <details>
 
+-   [`3eff7c4`](https://github.com/stdlib-js/stdlib/commit/3eff7c48b5841028d49c159d900b18000c0e9a43) - **docs:** fix comments _(by Athan Reines)_
 -   [`78087d9`](https://github.com/stdlib-js/stdlib/commit/78087d9a551783d642d885fb42b89b4e23acd671) - **fix:** provide missing argument to function _(by Athan Reines)_
 -   [`c13c153`](https://github.com/stdlib-js/stdlib/commit/c13c1532c804118dc9ccbcb81867d7723215f671) - **docs:** document exceptions _(by Athan Reines)_
 -   [`64e4bd6`](https://github.com/stdlib-js/stdlib/commit/64e4bd6055042207ce2e5ae6687ca8992b06367f) - **docs:** fix missing option description _(by Athan Reines)_
