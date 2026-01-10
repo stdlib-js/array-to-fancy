@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-02-02)
+## Unreleased (2026-01-10)
 
 <section class="bug-fixes">
 
@@ -24,6 +24,7 @@
 
 <details>
 
+-   [`bfc8c3a`](https://github.com/stdlib-js/stdlib/commit/bfc8c3a7bcebf1a049c9e457ab440f540fd5c7a9) - **chore:** use one asterisk for license comment in TS files _(by Philipp Burckhardt)_
 -   [`3eff7c4`](https://github.com/stdlib-js/stdlib/commit/3eff7c48b5841028d49c159d900b18000c0e9a43) - **docs:** fix comments _(by Athan Reines)_
 -   [`78087d9`](https://github.com/stdlib-js/stdlib/commit/78087d9a551783d642d885fb42b89b4e23acd671) - **fix:** provide missing argument to function _(by Athan Reines)_
 -   [`c13c153`](https://github.com/stdlib-js/stdlib/commit/c13c1532c804118dc9ccbcb81867d7723215f671) - **docs:** document exceptions _(by Athan Reines)_
@@ -42,9 +43,10 @@
 
 ### Contributors
 
-A total of 1 person contributed to this release. Thank you to this contributor:
+A total of 2 people contributed to this release. Thank you to the following contributors:
 
 -   Athan Reines
+-   Philipp Burckhardt
 
 </section>
 
