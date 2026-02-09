@@ -55,7 +55,7 @@
     "@stdlib/array-from-scalar": "^0.3.1",
     "@stdlib/array-index": "^0.3.1",
     "@stdlib/array-min-dtype": "^0.3.1",
-    "@stdlib/array-mskfilter": "^0.1.2",
+    "@stdlib/array-mskfilter": "^0.1.3",
     "@stdlib/array-mskreject": "^0.1.3",
     "@stdlib/array-place": "^0.1.2",
     "@stdlib/array-put": "^0.0.3",
@@ -87,7 +87,7 @@
     "@stdlib/error-tools-fmtprodmsg": "^0.2.3"
   },
   "devDependencies": {
-    "@stdlib/array-base-to-accessor-array": "^0.2.2",
+    "@stdlib/array-base-to-accessor-array": "^0.2.3",
     "@stdlib/array-bool": "^0.1.2",
     "@stdlib/array-complex128": "^0.3.2",
     "@stdlib/array-complex64": "^0.3.2",
@@ -104,8 +104,8 @@
     "@stdlib/assert-has-proxy-support": "^0.2.3",
     "@stdlib/assert-has-symbol-support": "^0.2.3",
     "@stdlib/assert-is-nan": "^0.2.3",
-    "@stdlib/assert-is-same-complex128array": "^0.2.2",
-    "@stdlib/assert-is-same-complex64array": "^0.2.2",
+    "@stdlib/assert-is-same-complex128array": "^0.2.3",
+    "@stdlib/assert-is-same-complex64array": "^0.2.3",
     "@stdlib/complex-float64-ctor": "^0.1.2",
     "@stdlib/slice-ctor": "^0.2.3",
     "@stdlib/symbol-ctor": "^0.2.3",
