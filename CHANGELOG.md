@@ -2,6 +2,40 @@
 
 > Package changelog.
 
+<section class="release" id="unreleased">
+
+## Unreleased (2026-05-06)
+
+<section class="commits">
+
+### Commits
+
+<details>
+
+-   [`50ffb8e`](https://github.com/stdlib-js/stdlib/commit/50ffb8e96b19a07cc4de32920e94b2863d1ff5ed) - **docs:** improve doctests for complex number instances in `array/to-fancy` [(#11974)](https://github.com/stdlib-js/stdlib/pull/11974) _(by Karan Anand)_
+
+</details>
+
+</section>
+
+<!-- /.commits -->
+
+<section class="contributors">
+
+### Contributors
+
+A total of 1 person contributed to this release. Thank you to this contributor:
+
+-   Karan Anand
+
+</section>
+
+<!-- /.contributors -->
+
+</section>
+
+<!-- /.release -->
+
 <section class="release" id="v0.2.2">
 
 ## 0.2.2 (2026-02-08)
