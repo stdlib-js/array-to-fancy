@@ -1,4 +1,4 @@
-"use strict";var u=function(r,i){return function(){return i||r((i={exports:{}}).exports,i),i.exports}};var D=u(function(Yt,T){
+"use strict";var u=function(r,i){return function(){try{return i||r((i={exports:{}}).exports,i),i.exports}catch(a){throw (i=0, a)}};};var D=u(function(Yt,T){
 var kr=require('@stdlib/array-base-assert-is-complex-floating-point-data-type/dist'),_r=require('@stdlib/assert-is-number/dist').isPrimitive;function Pr(r){return _r(r)?[r,0]:r}function Cr(r){return kr(r)?Pr:null}T.exports=Cr
 });var R=u(function($t,x){
 function Nr(r,i){return a;function a(t){return r(t,i)}}x.exports=Nr
