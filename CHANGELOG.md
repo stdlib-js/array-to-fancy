@@ -4,7 +4,17 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-08-22)
+## Unreleased (2026-09-01)
+
+<section class="features">
+
+### Features
+
+-   [`688eb54`](https://github.com/stdlib-js/stdlib/commit/688eb549a9c06731795328d477e2a31577f7f737) - add float16 dtype support to `array/to-fancy` [(#14858)](https://github.com/stdlib-js/stdlib/pull/14858)
+
+</section>
+
+<!-- /.features -->
 
 <section class="commits">
 
@@ -12,6 +22,7 @@
 
 <details>
 
+-   [`688eb54`](https://github.com/stdlib-js/stdlib/commit/688eb549a9c06731795328d477e2a31577f7f737) - **feat:** add float16 dtype support to `array/to-fancy` [(#14858)](https://github.com/stdlib-js/stdlib/pull/14858) _(by Gururaj Gurram)_
 -   [`fdbc822`](https://github.com/stdlib-js/stdlib/commit/fdbc82241f30438af95d53f451c1c4cd4523859f) - **chore:** remove unnecessary `format` calls [(#14520)](https://github.com/stdlib-js/stdlib/pull/14520) _(by Philipp Burckhardt)_
 -   [`d660241`](https://github.com/stdlib-js/stdlib/commit/d660241b4827a4c598b2334173552247ad4b839f) - **bench:** refactor to use string interpolation in `array` [(#11414)](https://github.com/stdlib-js/stdlib/pull/11414) _(by Karan Anand, Athan Reines)_
 -   [`50ffb8e`](https://github.com/stdlib-js/stdlib/commit/50ffb8e96b19a07cc4de32920e94b2863d1ff5ed) - **docs:** improve doctests for complex number instances in `array/to-fancy` [(#11974)](https://github.com/stdlib-js/stdlib/pull/11974) _(by Karan Anand)_
@@ -26,9 +37,10 @@
 
 ### Contributors
 
-A total of 3 people contributed to this release. Thank you to the following contributors:
+A total of 4 people contributed to this release. Thank you to the following contributors:
 
 -   Athan Reines
+-   Gururaj Gurram
 -   Karan Anand
 -   Philipp Burckhardt
 
