@@ -18,7 +18,7 @@
 
 // TypeScript Version: 4.1
 
-/// <reference types="@stdlib/types"/>
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
 import { Collection, ArrayLike, AccessorArrayLike, ComplexTypedArray, TypedArray, BooleanTypedArray, IndexArrayObject } from '@stdlib/types/array';
 import ArrayIndex = require( '@stdlib/array-index' );
